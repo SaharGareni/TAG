@@ -8,6 +8,6 @@ namespace TAG_Revisied
 {
     public class EngineRoomDoor : Item
     {
-
+        public EngineRoomDoor() : base() { }
     }
 }
