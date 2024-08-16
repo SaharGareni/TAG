@@ -36,6 +36,7 @@ namespace TAG_Revisied
         }
         public bool ContainsItem (List<Item> list,string itemName)
         {
+            itemName = itemName.ToUpper();
             return list.Any(item => item.Name == itemName);
         }
         public void AddItemToInventory(Item item)

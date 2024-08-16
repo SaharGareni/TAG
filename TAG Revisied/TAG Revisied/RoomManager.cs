@@ -22,6 +22,9 @@ namespace TAG_Revisied
             //will probably have to isntatiate every room here instead of game initializer 
             //then store them in the dictionary
         }
+        //IMPORTANT: BOTH ADDROOM AND SETCURRENTROOM TAKE THE 
+        //NAME STRING OF THE ROMM AND ToLower()s THEM
+        //SO THE INPUT WHEN CALL THE METHOD ISNT SENSITVE FOR NOW
         public void AddRoom(Room room)
         {
             if (!_rooms.ContainsKey(room.Name))
@@ -31,7 +34,7 @@ namespace TAG_Revisied
         }
         public void SetCurrentRoom(string roomName)
         {
-            if (_rooms.TryGetValue(roomName, out Room room))
+            if (_rooms.TryGetValue(roomName.ToLower(), out Room room))
             {
                 CurrentRoom = room;
                 room.Enter();

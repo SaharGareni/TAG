@@ -24,7 +24,6 @@ namespace TAG_Revisied
         }
         public override void Enter()
         {
-
         }
         public override void Exit() { }
         //Go function currenrtly has unimplemeted interaction with the the door since the item Door and this class's boolean have no way
