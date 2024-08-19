@@ -22,6 +22,7 @@ namespace TAG_Revisied
         }
         public Item GetItem(string itemName)
         {
+            itemName = itemName.ToUpper();
             var item = Inventory.FirstOrDefault(i => i.Name == itemName);
             if (item == null)
             {

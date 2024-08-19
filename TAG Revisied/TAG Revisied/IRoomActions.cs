@@ -11,5 +11,6 @@ namespace TAG_Revisied
         void Enter();
         void Exit();
         string Go(string target,GameState gameState);
+        string Inspect(GameState gameState);
     }
 }

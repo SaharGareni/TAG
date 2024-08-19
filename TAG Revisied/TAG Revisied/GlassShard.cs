@@ -17,8 +17,8 @@ namespace TAG_Revisied
         {
             switch (targetItem)
             {
-                case Rope:
-                    return "A good idea! Just not for now.";
+                case Mattress mattress:
+                    return "add the key when its deveploed";
             }
             return "Nothing interesting happens.";
         }

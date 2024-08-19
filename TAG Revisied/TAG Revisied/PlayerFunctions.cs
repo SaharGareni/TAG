@@ -35,7 +35,7 @@
 
             if (string.IsNullOrWhiteSpace(itemName))
             {
-                return _gameState.RoomManager.CurrentRoom.Description;
+                return _gameState.RoomManager.CurrentRoom.Inspect(_gameState);
             }
             var item = _gameState.GetItem(itemName);
             if (item == null)
