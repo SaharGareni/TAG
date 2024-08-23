@@ -33,9 +33,11 @@ namespace TAG_Revisied
             {
                 return "You are bound.";
             }
+            //USED FOR TESTING IGNORE THAT
             //switch (targetItem.Name)
             //{
-            //    case "lever":
+            //    case "ROCK":
+            //        targetItem.Inspect(gameState);
             //        return "You attach the rope to the lever";
             //}
             return "Nothing interesting happens.";

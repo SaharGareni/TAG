@@ -56,6 +56,10 @@ namespace TAG_Revisied
         {
             ConditionalItems.Remove(item);
         }
+        public void AddRoomItem(Item item)
+        {
+            RoomManager.CurrentRoom.RoomItems.Add(item);
+        }
         //VV temporary solution to make it so "FirstRoom.IsBoundCoun" can affect the rest of the actions VV
         public bool IsPlayerBound()
         {
@@ -70,6 +74,20 @@ namespace TAG_Revisied
             sourceInventory.Remove(item);
             Inventory.Add(item);
             return $"You take the {item.Name}.";
+        }
+        public void MoveConditionalItem(string itemName,List<Item> list)
+        {
+            itemName = itemName.ToUpper();
+            var item = ConditionalItems.FirstOrDefault(i => i.Name == itemName);
+            if (item != null)
+            {
+                list.Add(item);
+                ConditionalItems.Remove(item);
+            }
+            else
+            {
+                Console.WriteLine($"FOR DEBUGGING: COULD NOT TRANSFER {itemName} to {list}. REFRENCED ITEM IS NULL");
+            }
         }
     }
 }

@@ -10,6 +10,14 @@ namespace TAG_Revisied
     {
         public bool OnWall;
         public Clock() : base("CLOCK","Examining the CLOCK reveals slotted BATTERIES in it's back.",false) { OnWall = true; }
+        public override string Take(GameState gameState)
+        {
+            if (OnWall)
+            {
+                return "I can't reach that.";
+            }
+            return base.Take(gameState);
+        }
         public override string Inspect(GameState gameState)
         {
             if (OnWall)
@@ -18,5 +26,6 @@ namespace TAG_Revisied
             }
             return base.Inspect(gameState);
         }
+
     }
 }

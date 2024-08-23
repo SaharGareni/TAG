@@ -19,9 +19,18 @@ namespace TAG_Revisied
             }
             if (!IsClosed)
             {
-                //if (room contians both gas tank(?) and the flashlight) {return "you look inside the cabinet and see a gas tank and a flashlight }
-                //else if (room only contains gas tank) {you look inside the cabinet and see a gas tank }
-                //else if (room only contains flashlight) {you look inside the cabinet and see a flashlight}
+                if (gameState.ContainsItem(gameState.RoomManager.CurrentRoom.RoomItems,"GAS CAN") && gameState.ContainsItem(gameState.RoomManager.CurrentRoom.RoomItems, "FLASHLIGT"))
+                {
+                    return $"You look inside the {Name} and see a GAS CAN and a FLASHLIGHT.";
+                }
+                else if (gameState.ContainsItem(gameState.RoomManager.CurrentRoom.RoomItems, "GAS CAN"))
+                {
+                   return $"You look inside the {Name} and see a GAS CAN.";
+                }
+                else if (gameState.ContainsItem(gameState.RoomManager.CurrentRoom.RoomItems, "FLASHLIGT"))
+                {
+                    return $"You look inside the {Name} and see a FLASHLIGHT.";
+                }
             }
             return base.Inspect(gameState);
         }
