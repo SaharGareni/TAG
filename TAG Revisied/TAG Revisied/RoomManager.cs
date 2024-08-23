@@ -17,8 +17,10 @@ namespace TAG_Revisied
             _rooms = new Dictionary<string, Room>();
             CurrentRoom = room;
             var hallway = new Hallway();
+            var sleepingQuarters = new SleepingQuarters();
             AddRoom(room);
             AddRoom(hallway);
+            AddRoom(sleepingQuarters);
             //will probably have to isntatiate every room here instead of game initializer 
             //then store them in the dictionary
         }

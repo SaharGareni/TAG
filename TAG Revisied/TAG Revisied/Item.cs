@@ -23,7 +23,7 @@ namespace TAG_Revisied
         {
             if (!IsObtainable)
             {
-                return "I can't take that";
+                return "I can't take that.";
             }
             if (gameState.RoomManager.CurrentRoom.RoomItems.Contains(this))
             {

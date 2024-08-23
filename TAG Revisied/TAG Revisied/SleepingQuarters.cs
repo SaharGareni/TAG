@@ -9,10 +9,19 @@ namespace TAG_Revisied
     public class SleepingQuarters : Room
     {
 
-        public SleepingQuarters() : base("sleepingQuarters", "This room feels oddly quiet, save for the steady tick of something unseen. A BED and a CABINET sit idly in the shadows.") { }
+        public SleepingQuarters() : base("sleepingQuarters", "This room feels oddly quiet, save for the steady tick of something unseen. A BED and a CABINET sit idly in the shadows.") 
+        {
+            RoomItems.Add(new Cabinet());
+			RoomItems.Add(new Clock());
+			RoomItems.Add(new Bed());
+			RoomItems.Add(new Pillow());
+			RoomItems.Add(new Mattress());
+
+		}
         public override string Inspect(GameState gameState)
         {
-            if (!gameState.ContainsItem(RoomItems, "CLOCK"))
+            Clock clock = gameState.GetItem("CLOCK") as Clock; 
+            if (clock != null && clock.HasBatteries)
             {
                 return "At least the ticking is gone";
             }

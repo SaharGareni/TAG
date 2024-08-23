@@ -9,7 +9,8 @@ namespace TAG_Revisied
     public class Clock : Item
     {
         public bool OnWall;
-        public Clock() : base("CLOCK","Examining the CLOCK reveals slotted BATTERIES in it's back.",false) { OnWall = true; }
+        public bool HasBatteries;
+        public Clock() : base("CLOCK","Examining the CLOCK reveals slotted BATTERIES in it's back.",false) { OnWall = true; HasBatteries = true; }
         public override string Take(GameState gameState)
         {
             if (OnWall)
@@ -23,6 +24,10 @@ namespace TAG_Revisied
             if (OnWall)
             {
                 return "Right twice a day.";
+            }
+            if (!HasBatteries)
+            {
+                return "Finally. The ticking is gone";
             }
             return base.Inspect(gameState);
         }

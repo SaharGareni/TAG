@@ -10,7 +10,7 @@ namespace TAG_Revisied
     {
         public bool IsLocked;
         public bool IsClosed;
-        public Cabinet() : base("CABINET","A long metalic box used to contain things.",false) { IsClosed = true; IsLocked = true; }
+        public Cabinet() : base("CABINET","A long metallic box used to contain things.",false) { IsClosed = true; IsLocked = true; }
         public override string Inspect(GameState gameState)
         {
             if (IsLocked)
@@ -19,7 +19,7 @@ namespace TAG_Revisied
             }
             if (!IsClosed)
             {
-                if (gameState.ContainsItem(gameState.RoomManager.CurrentRoom.RoomItems,"GAS CAN") && gameState.ContainsItem(gameState.RoomManager.CurrentRoom.RoomItems, "FLASHLIGT"))
+                if (gameState.ContainsItem(gameState.RoomManager.CurrentRoom.RoomItems,"GAS CAN") && gameState.ContainsItem(gameState.RoomManager.CurrentRoom.RoomItems, "FLASHLIGHT"))
                 {
                     return $"You look inside the {Name} and see a GAS CAN and a FLASHLIGHT.";
                 }

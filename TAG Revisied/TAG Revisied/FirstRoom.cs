@@ -68,6 +68,8 @@ namespace TAG_Revisied
                     if (!FirstDoorLocked)
                     {
                         gameState.RoomManager.SetCurrentRoom("hallway");
+                        //this text below should only be displayed for the first time and after that it should display something else.
+                        //should probably create a method to handle the displayed text as you enter rooms for the first time.
                         return "You step through the door into a dimly lit hallway. As you enter, an echoing rumble comes from your right, sending shivers down your spine.\nYou notice two entrances from either side, the doorway to your right seems to be half opened.";
                     }
                     return $"You go to the {target}, there is a heavy metal DOOR blocking your way.";

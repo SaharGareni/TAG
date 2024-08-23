@@ -20,8 +20,10 @@ namespace TAG_Revisied
         {
             if (State == BatteriesState.InClock)
             {
-                State = BatteriesState.InInventory;
-                return $"You take the {Name} out of the CLOCK. " + base.Take(gameState);
+				Clock clock = gameState.GetItem("FLASHLIGHT") as Clock;
+                clock.HasBatteries = false;
+				State = BatteriesState.InInventory;
+                return $"You remove the {Name} out of the CLOCK. " + base.Take(gameState);
             }
             if (State == BatteriesState.InFlashlight)
             {               
@@ -37,7 +39,7 @@ namespace TAG_Revisied
                     flashlight.IsOn = false;
                     flashlight.State = Flashlight.FlashlightState.InCrackEmpty;
                 }
-                return $"You take the {Name} out of the FLASHLIGHT. " + base.Take(gameState);
+                return $"You remove the {Name} out of the FLASHLIGHT. " + base.Take(gameState);
             }
             return base.Take(gameState);
         }
@@ -50,7 +52,7 @@ namespace TAG_Revisied
             return base.Inspect(gameState);
         }
         //unfinished taking a break
-        //need to figure out a smart way for UseOn taking out and slotting in the battries with the given inventory system.
+        //need to figure out a smart way for UseOn taking out and slotting in the batteries with the given inventory system.
         public override string UseOn(Item targetItem, GameState gameState)
         {
             if (!(State == BatteriesState.InInventory))
