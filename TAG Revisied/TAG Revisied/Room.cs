@@ -5,19 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TAG_Revisied
+
 {
     public abstract class Room : IRoomActions
     {
         public string Name { get;}
         public string Description { get; set; }
         public List<Item> RoomItems { get;}
+        public bool HasBeenEntered { get; set; } 
         protected Room(string name, string description)
         {
             Name = name;
             Description = description;
             RoomItems = new List<Item>();
         }
-        public virtual void Enter() { }
+        public virtual string Enter()
+        {
+            if (HasBeenEntered)
+            {
+                return $"You enter the {Name}.";
+            }
+            HasBeenEntered = true;
+            return GetFirstEntryMessage();
+        }
         public virtual void Exit() { }
         public virtual string Go(string target,GameState gameState)
         {
@@ -57,6 +67,12 @@ namespace TAG_Revisied
         {
             return "Nothing happens.";
         }
+        protected virtual string GetFirstEntryMessage()
+        {
+            return $"You enter the {Name}";
+        }
+
+
         //probably not needed just clutter VV
         //public void AddItem(Item item)
         //{

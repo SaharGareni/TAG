@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TAG_Revisied
+
 {
     public class SleepingQuarters : Room
     {
@@ -21,9 +22,9 @@ namespace TAG_Revisied
         public override string Inspect(GameState gameState)
         {
             Clock clock = gameState.GetItem("CLOCK") as Clock; 
-            if (clock != null && clock.HasBatteries)
+            if (clock != null && !clock.HasBatteries)
             {
-                return "At least the ticking is gone";
+                return "At least the ticking is gone.";
             }
             return base.Inspect(gameState);
         }
@@ -41,8 +42,11 @@ namespace TAG_Revisied
         }
         protected override string HandleWest(GameState gameState)
         {
-            gameState.RoomManager.SetCurrentRoom("hallway");
-            return "You return to the hallway.";
+            return gameState.RoomManager.SetCurrentRoom("hallway");
+        }
+        protected override string GetFirstEntryMessage()
+        {
+            return "You head EAST and notice an entrance that’s mostly open. You decide to step inside the room.";
         }
     }
 }

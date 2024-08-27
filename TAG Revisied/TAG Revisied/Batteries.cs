@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TAG_Revisied
+
 {
     public class Batteries : Item
     {
@@ -20,7 +21,7 @@ namespace TAG_Revisied
         {
             if (State == BatteriesState.InClock)
             {
-				Clock clock = gameState.GetItem("FLASHLIGHT") as Clock;
+				Clock clock = gameState.GetItem("CLOCK") as Clock;
                 clock.HasBatteries = false;
 				State = BatteriesState.InInventory;
                 return $"You remove the {Name} out of the CLOCK. " + base.Take(gameState);

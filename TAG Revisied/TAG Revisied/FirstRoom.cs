@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TAG_Revisied
+
 {
     public class FirstRoom : Room
     {
@@ -21,9 +22,6 @@ namespace TAG_Revisied
             RoomItems.Add(new Door());
             RoomItems.Add(new Switch());
             RoomItems.Add(new Window());
-        }
-        public override void Enter()
-        {
         }
         public override void Exit() { }
         //Go function currenrtly has unimplemeted interaction with the the door since the item Door and this class's boolean have no way
@@ -67,10 +65,7 @@ namespace TAG_Revisied
                 case "NORTH":
                     if (!FirstDoorLocked)
                     {
-                        gameState.RoomManager.SetCurrentRoom("hallway");
-                        //this text below should only be displayed for the first time and after that it should display something else.
-                        //should probably create a method to handle the displayed text as you enter rooms for the first time.
-                        return "You step through the door into a dimly lit hallway. As you enter, an echoing rumble comes from your right, sending shivers down your spine.\nYou notice two entrances from either side, the doorway to your right seems to be half opened.";
+                        return gameState.RoomManager.SetCurrentRoom("hallway");
                     }
                     return $"You go to the {target}, there is a heavy metal DOOR blocking your way.";
                 case "EAST":
@@ -88,11 +83,14 @@ namespace TAG_Revisied
                     {
                         return "You attemp going through the DOOR. It is locked shut.";
                     }
-                    gameState.RoomManager.SetCurrentRoom("hallway");
-                    return "You step through the door into a dimly lit hallway. As you enter, an echoing rumble comes from your right, sending shivers down your spine.\nYou notice two entrances from either side, the doorway to your right seems to be half opened.";
+                    return gameState.RoomManager.SetCurrentRoom("hallway");
 
             }
              return "I can't go there.";
+        }
+        protected override string GetFirstEntryMessage()
+        {
+            return "You go back to the room which you woke up in.";
         }
         //VV need to edit this function to acutlaly interact with the door
         public void UnlockFirstDoor()

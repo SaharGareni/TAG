@@ -1,4 +1,5 @@
 ﻿namespace TAG_Revisied
+
 {
     public class Flashlight : Item
     {

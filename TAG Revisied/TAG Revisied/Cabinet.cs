@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TAG_Revisied
+
 {
     public class Cabinet : Item
     {
@@ -27,7 +28,7 @@ namespace TAG_Revisied
                 {
                    return $"You look inside the {Name} and see a GAS CAN.";
                 }
-                else if (gameState.ContainsItem(gameState.RoomManager.CurrentRoom.RoomItems, "FLASHLIGT"))
+                else if (gameState.ContainsItem(gameState.RoomManager.CurrentRoom.RoomItems, "FLASHLIGHT"))
                 {
                     return $"You look inside the {Name} and see a FLASHLIGHT.";
                 }
