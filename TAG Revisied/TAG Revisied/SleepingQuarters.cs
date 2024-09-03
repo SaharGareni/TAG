@@ -10,7 +10,7 @@ namespace TAG_Revisied
     public class SleepingQuarters : Room
     {
 
-        public SleepingQuarters() : base("sleepingQuarters", "This room feels oddly quiet, save for the steady tick of something unseen. A BED and a CABINET sit idly in the shadows.") 
+        public SleepingQuarters() : base("sleepingQuarters","sleeping quarters", "This room feels oddly quiet, save for the steady tick of something unseen. A BED and a CABINET sit idly in the shadows.") 
         {
             RoomItems.Add(new Cabinet());
 			RoomItems.Add(new Clock());

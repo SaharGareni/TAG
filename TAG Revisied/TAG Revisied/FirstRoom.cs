@@ -11,7 +11,7 @@ namespace TAG_Revisied
     {
         public bool FirstDoorLocked { get; set; }
         public int IsBoundCount { get;  set; }
-        public FirstRoom() : base("firstRoom", "An almost desolate room, encased by cold concrete WALLS. An object clings to the WALL on the left, while dim light seeps in from your right, casting eerie shadows. Above, something ominously dangles from the ceiling.")
+        public FirstRoom() : base("firstRoom","room you woke up in", "An almost desolate room, encased by cold concrete WALLS. An object clings to the WALL on the left, while dim light seeps in from your right, casting eerie shadows. Above, something ominously dangles from the ceiling.")
         {
             FirstDoorLocked = true;
             IsBoundCount = 0;

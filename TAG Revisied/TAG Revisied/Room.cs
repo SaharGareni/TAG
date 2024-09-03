@@ -10,12 +10,14 @@ namespace TAG_Revisied
     public abstract class Room : IRoomActions
     {
         public string Name { get;}
+        public string DisplayName { get; }
         public string Description { get; set; }
         public List<Item> RoomItems { get;}
         public bool HasBeenEntered { get; set; } 
-        protected Room(string name, string description)
+        protected Room(string name, string displayName, string description)
         {
             Name = name;
+            DisplayName = displayName;
             Description = description;
             RoomItems = new List<Item>();
         }
@@ -23,7 +25,7 @@ namespace TAG_Revisied
         {
             if (HasBeenEntered)
             {
-                return $"You enter the {Name}.";
+                return $"You enter the {DisplayName}.";
             }
             HasBeenEntered = true;
             return GetFirstEntryMessage();

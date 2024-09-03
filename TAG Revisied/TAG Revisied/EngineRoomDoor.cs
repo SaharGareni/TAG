@@ -13,7 +13,7 @@ namespace TAG_Revisied
     {
         public bool IsBlocked;
         public bool FloorWithGas;
-        public EngineRoomDoor() : base("DOOR", "You peek into the keyhole of the door, it's too dark for you to see.", false) { IsBlocked = true; FloorWithGas = false; }
+        public EngineRoomDoor() : base("DOOR","You peek into the keyhole of the door, it's too dark for you to see.", false) { IsBlocked = true; FloorWithGas = false; }
         public override string Inspect(GameState gameState)
         {
             var flashlight = gameState.GetItem("FLASHLIGHT") as Flashlight;

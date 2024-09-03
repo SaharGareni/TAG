@@ -10,7 +10,7 @@ namespace TAG_Revisied
     public class Hallway : Room
     {
         public bool engineRoomBlocked;
-        public Hallway() : base("hallway", "A damp corridor stretches before you, with a DOOR to the left and another to the right." +
+        public Hallway() : base("hallway","hallway", "A damp corridor stretches before you, with a DOOR to the left and another to the right." +
             "Up ahead, the path is choked with RUBBLE, blocking your way." +
             "To the WEST you notice a CRACK in the wall next to the DOOR, big enough to almost fit your hand in.") 
         { 
@@ -29,10 +29,8 @@ namespace TAG_Revisied
                     return $"You venture further {target} into the {Name} where a pile of RUBBLE stops you in your tracks.";
                 case "EAST":
                     return gameState.RoomManager.SetCurrentRoom("sleepingQuarters");
-                    return $"You head {target} and notice an entrance that’s mostly open. You decide to step inside the room.";
                 case "SOUTH":
                     return gameState.RoomManager.SetCurrentRoom("firstRoom");
-                    return "You go back to the room which you woke up in.";
                 case "WEST":
                     if (engineRoomBlocked)
                     {
