@@ -1,4 +1,5 @@
 ﻿namespace TAG_Revisied
+
 {
     public class PlayerFunctions
     {
@@ -35,7 +36,7 @@
 
             if (string.IsNullOrWhiteSpace(itemName))
             {
-                return _gameState.RoomManager.CurrentRoom.Description;
+                return _gameState.RoomManager.CurrentRoom.Inspect(_gameState);
             }
             var item = _gameState.GetItem(itemName);
             if (item == null)
@@ -61,7 +62,7 @@
             }
             var item = _gameState.GetItem(itemName);
             var targetItem = _gameState.GetItem(targetName);
-            return item?.UseOn(targetItem, _gameState) ?? "I can't do that.";
+            return (item != null && targetItem != null) ? item.UseOn(targetItem, _gameState) : "I can't do that.";
         }
         public string Go(string direction)
         {

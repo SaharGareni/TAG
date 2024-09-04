@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TAG_Revisied
+
 {
     public abstract class Item : IItemActions
     {
@@ -23,7 +24,7 @@ namespace TAG_Revisied
         {
             if (!IsObtainable)
             {
-                return "I can't take that";
+                return "I can't take that.";
             }
             if (gameState.RoomManager.CurrentRoom.RoomItems.Contains(this))
             {

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TAG_Revisied
+
 {
     public class RoomManager
     {
@@ -17,8 +18,10 @@ namespace TAG_Revisied
             _rooms = new Dictionary<string, Room>();
             CurrentRoom = room;
             var hallway = new Hallway();
+            var sleepingQuarters = new SleepingQuarters();
             AddRoom(room);
             AddRoom(hallway);
+            AddRoom(sleepingQuarters);
             //will probably have to isntatiate every room here instead of game initializer 
             //then store them in the dictionary
         }
@@ -32,17 +35,18 @@ namespace TAG_Revisied
                 _rooms[room.Name.ToLower()] = room;
             }
         }
-        public void SetCurrentRoom(string roomName)
+        public  string SetCurrentRoom(string roomName)
+        {
+            CurrentRoom = GetRoom(roomName);
+            return CurrentRoom.Enter();
+        }
+        public Room GetRoom(string roomName)
         {
             if (_rooms.TryGetValue(roomName.ToLower(), out Room room))
             {
-                CurrentRoom = room;
-                room.Enter();
+                return room;
             }
-            else
-            {
-                Console.WriteLine("COULD NOT SET THE ROOM INVLALID ROOM NAME");
-            }
+            else throw new Exception(null);
         }
         public void ExitCurrnetRoom()
         {

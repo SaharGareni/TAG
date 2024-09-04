@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TAG_Revisied
+
 {
     public class FirstRoom : Room
     {
         public bool FirstDoorLocked { get; set; }
         public int IsBoundCount { get;  set; }
-        public FirstRoom() : base("firstRoom", "An almost desolate room, encased by cold concrete WALLS. An object clings to the WALL on the left, while dim light seeps in from your right, casting eerie shadows. Above, something ominously dangles from the ceiling.")
+        public FirstRoom() : base("firstRoom","room you woke up in", "An almost desolate room, encased by cold concrete WALLS. An object clings to the WALL on the left, while dim light seeps in from your right, casting eerie shadows. Above, something ominously dangles from the ceiling.")
         {
             FirstDoorLocked = true;
             IsBoundCount = 0;
@@ -21,9 +22,6 @@ namespace TAG_Revisied
             RoomItems.Add(new Door());
             RoomItems.Add(new Switch());
             RoomItems.Add(new Window());
-        }
-        public override void Enter()
-        {
         }
         public override void Exit() { }
         //Go function currenrtly has unimplemeted interaction with the the door since the item Door and this class's boolean have no way
@@ -67,8 +65,7 @@ namespace TAG_Revisied
                 case "NORTH":
                     if (!FirstDoorLocked)
                     {
-                        gameState.RoomManager.SetCurrentRoom("hallway");
-                        return "You step through the door into a dimly lit hallway. As you enter, an echoing rumble comes from your right, sending shivers down your spine.\nYou notice two entrances from either side, the doorway to your right seems to be half opened.";
+                        return gameState.RoomManager.SetCurrentRoom("hallway");
                     }
                     return $"You go to the {target}, there is a heavy metal DOOR blocking your way.";
                 case "EAST":
@@ -86,11 +83,14 @@ namespace TAG_Revisied
                     {
                         return "You attemp going through the DOOR. It is locked shut.";
                     }
-                    gameState.RoomManager.SetCurrentRoom("hallway");
-                    return "You step through the door into a dimly lit hallway. As you enter, an echoing rumble comes from your right, sending shivers down your spine.\nYou notice two entrances from either side, the doorway to your right seems to be half opened.";
+                    return gameState.RoomManager.SetCurrentRoom("hallway");
 
             }
              return "I can't go there.";
+        }
+        protected override string GetFirstEntryMessage()
+        {
+            return "You go back to the room which you woke up in.";
         }
         //VV need to edit this function to acutlaly interact with the door
         public void UnlockFirstDoor()
