@@ -17,7 +17,7 @@ namespace TAG_Revisied
         public override string Inspect(GameState gameState)
         {
             var flashlight = gameState.GetItem("FLASHLIGHT") as Flashlight;
-            return (flashlight?.State == Flashlight.FlashlightState.InCrackLoaded && flashlight.IsOn) ? "You peek throught the keyhole and notice a shadow of an object stuck between the floor and the door handle." : Description;
+            return (flashlight?.State == Flashlight.FlashlightState.InCrackLoaded && flashlight.IsOn) ? "You peek through the keyhole and notice a shadow of an object stuck between the floor and the door handle." : Description;
         }
         public override string Use(GameState gameState)
         {

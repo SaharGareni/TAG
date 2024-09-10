@@ -61,6 +61,10 @@ namespace TAG_Revisied
         {
             RoomManager.CurrentRoom.RoomItems.Add(item);
         }
+        public void RemoveRoomItem(Item item)
+        {
+            RoomManager.CurrentRoom.RoomItems.Remove(item);
+        }
         //VV temporary solution to make it so "FirstRoom.IsBoundCoun" can affect the rest of the actions VV
         public bool IsPlayerBound()
         {

@@ -9,8 +9,8 @@ namespace TAG_Revisied
 {
     public class Ladder : Item
     {
-        bool IsBroken = true;
-        public Ladder() : base("LADDER","Dont walk under it.",true) { }
+        public bool IsBroken {  get; set; }
+        public Ladder() : base("LADDER","Don't walk under it.",true) { IsBroken = true; }
         public override string Take(GameState gameState)
         {
             if (IsBroken)
@@ -28,5 +28,16 @@ namespace TAG_Revisied
             return base.Inspect(gameState);
         }
         //VVVV CREATE THE USE AND THE USEON FUNCTIONS WHEN ENGINEROOM IS DEVELOPED VVVV
+        public override string UseOn(Item targetItem, GameState gameState)
+        {
+            switch (targetItem)
+            {
+                case Vent vent:
+                    gameState.AddRoomItem(this);
+                    gameState.RemoveItemFromInventory(this);
+                    return $"You lean the {Name} against the wall to reach the {vent.Name}";
+            }
+            return base.UseOn(targetItem, gameState);
+        }
     }
 }
