@@ -32,7 +32,7 @@ namespace TAG_Revisied
                 case "SOUTH":
                     return gameState.RoomManager.SetCurrentRoom("firstRoom");
                 case "WEST":
-                    if (engineRoomBlocked)
+                    if ((gameState.GetItem("DOOR") as EngineRoomDoor)?.IsBlocked ?? false)
                     {
                         return "You attempt to open the DOOR on your left. It won't budge.";
                     }

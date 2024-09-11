@@ -19,7 +19,9 @@ namespace TAG_Revisied
         {
             if (gameState.ContainsItem(gameState.RoomManager.CurrentRoom.RoomItems, "LADDER"))
             {
-                                                                                  //VV not sure what the next level would be so this is temp 
+                                                                                  //VV not sure what the next level would be so this is temp
+                                                                                  //also need to add some logic for not having the flashlight
+                                                                                  //in the inventory
                 return IsCovered ? $"The {Name} is obscured in a bolted cover." : gameState.RoomManager.SetCurrentRoom("ventShaft");
             }
             return "That's too high for me to reach";

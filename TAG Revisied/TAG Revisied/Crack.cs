@@ -10,6 +10,10 @@ namespace TAG_Revisied
     public class Crack : Item
     {
         public Crack() : base("CRACK","Someone must've gotten real mad...",false){ }
+        public override string Inspect(GameState gameState)
+        {
+            return Use(gameState);
+        }
         public override string Use(GameState gameState)
         {
             if (gameState.ContainsItem(gameState.RoomManager.CurrentRoom.RoomItems, "FLASHLIGHT"))

@@ -11,9 +11,15 @@ namespace TAG_Revisied
         public bool IsLitByFlashlight { get; set; }
         public bool IsEngineOn { get; set; }
         public bool IsRoomLit => IsLitByFlashlight || IsEngineOn;
-        public EngineRoom() :base("engineRoom","engine room", "Upon examining the room you immediately notice an ENGINE" +
+        public EngineRoom() :base("engineRoom","engine room", "Upon examining the room you immediately notice an ENGINE " +
             "connected to a large PISTON." +
-            "As you investigate further you notice a VENT in the NORTH WESTERN wall connected to a network of pipes.") { }
+            "As you investigate further you notice a VENT in the NORTH WESTERN wall connected to a network of pipes.") 
+        {
+            RoomItems.Add(new Vent());
+            RoomItems.Add(new Piston());
+            RoomItems.Add(new Engine());
+            RoomItems.Add(new MetalBar());
+        }
         public override string Inspect(GameState gameState)
         {
             if (!IsRoomLit)
