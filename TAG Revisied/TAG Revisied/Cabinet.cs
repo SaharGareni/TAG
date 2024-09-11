@@ -18,6 +18,10 @@ namespace TAG_Revisied
             {
                 return $"A tiny keyhole is subtly integrated into one of the {Name}'s handles.";
             }
+            if (IsClosed)
+            {
+                return $"The {Name} is closed.";
+            }
             if (!IsClosed)
             {
                 if (gameState.ContainsItem(gameState.RoomManager.CurrentRoom.RoomItems,"GAS CAN") && gameState.ContainsItem(gameState.RoomManager.CurrentRoom.RoomItems, "FLASHLIGHT"))

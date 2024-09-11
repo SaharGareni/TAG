@@ -22,6 +22,14 @@ namespace TAG_Revisied
                 IsOn = true;
                 //VV Unsafe version commented
                 //((EngineRoom)gameState.RoomManager.CurrentRoom).IsEngineOn = true;
+                if (gameState.GetItem("ROPE") is Rope rope && rope.TiedToPistonAndVent)
+                {
+                    var vent = gameState.GetItem("VENT") as Vent;
+                    vent.IsCovered = false;
+                    return $"As you turn on the {Name} the adjacent PISTON's outer layer attempts to rise to the ceiling." +
+                        $"The {rope.Name} stretches thinly." +
+                        $"As the PISTON fiercely drops to the floor, it rips the cover of the {vent.Name} from its hinges. ";
+                }
                 if (gameState.RoomManager.CurrentRoom is EngineRoom engineRoom)
                 {
                     engineRoom.IsEngineOn = true; 

@@ -24,7 +24,7 @@ namespace TAG_Revisied
                                                                                   //in the inventory
                 return IsCovered ? $"The {Name} is obscured in a bolted cover." : gameState.RoomManager.SetCurrentRoom("ventShaft");
             }
-            return "That's too high for me to reach";
+            return "That's too high for me to reach.";
         }
     }
 }

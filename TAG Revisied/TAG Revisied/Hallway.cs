@@ -46,6 +46,9 @@ namespace TAG_Revisied
             return "You step through the door into a dimly lit hallway. " +
                 "As you enter, an echoing rumble comes from your right, sending shivers down your spine." +
                 "You notice two entrances from either side, the doorway to your right seems to be half opened.";
+               
+
+                
         }
     }
 }
