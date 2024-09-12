@@ -65,16 +65,19 @@ namespace TAG_Revisied
             switch (targetItem)
             {
                 case Flashlight flashlight:
-                    gameState.AddConditionalItem(this);
-                    gameState.RemoveItemFromInventory(this);
+                    
+                    
                     if (flashlight.State == Flashlight.FlashlightState.InCrackEmpty)
                     {
+                        gameState.AddRoomItem(this);
                         flashlight.State = Flashlight.FlashlightState.InCrackLoaded;
                     }
                     else
                     {
+                        gameState.AddConditionalItem(this);
                         flashlight.State = Flashlight.FlashlightState.Loaded;
                     }
+                    gameState.RemoveItemFromInventory(this);
                     State = BatteriesState.InFlashlight;
                     return $"You place the {Name} in the {flashlight.Name}.";
                     

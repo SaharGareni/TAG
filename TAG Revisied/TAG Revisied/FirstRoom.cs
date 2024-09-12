@@ -37,10 +37,10 @@ namespace TAG_Revisied
                         return $"You swing to the {target}, the CHAIR budges.";
                     case 1:
                         IsBoundCount++;
-                        return $"You violently swing to the {target} and cause the CHAIR to fall over, loosening the bind in the proccess.";
+                        return $"You violently swing to the {target} and cause the CHAIR to fall over, loosening the bind in the process.";
                     case 2:
                         IsBoundCount++;
-                        return "You successfully slip away from the ROPE that binded you to the CHAIR.";
+                        return "You successfully slip away from the ROPE that bound you to the CHAIR.";
                 }
             }
             ////OLD ITERATION OF CODE ABOVE - CHECK IF WORKS FIRST

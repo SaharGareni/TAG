@@ -22,7 +22,13 @@
             if (State == FlashlightState.InCrackLoaded)
             {
                 var engineRoom = gameState.RoomManager.GetRoom("engineRoom") as EngineRoom;
-                engineRoom.IsLitByFlashlight = false;
+                var batteries = gameState.GetItem("BATTERIES");
+                gameState.AddConditionalItem(batteries);
+                gameState.RemoveRoomItem(batteries);
+                //if (!IsOn)
+                //{
+                //    engineRoom.IsLitByFlashlight = false;
+                //}
                 State = FlashlightState.Loaded;
                 return base.Take(gameState);
             }

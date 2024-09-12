@@ -15,7 +15,7 @@ namespace TAG_Revisied
         {
             if (IsBroken)
             {
-                return "It's no use to me in this state";
+                return "It's no use to me in this state.";
             }
             return base.Take(gameState);
         }
@@ -35,7 +35,7 @@ namespace TAG_Revisied
                 case Vent vent:
                     gameState.AddRoomItem(this);
                     gameState.RemoveItemFromInventory(this);
-                    return $"You lean the {Name} against the wall to reach the {vent.Name}";
+                    return $"You lean the {Name} against the wall to reach the {vent.Name}.";
             }
             return base.UseOn(targetItem, gameState);
         }
