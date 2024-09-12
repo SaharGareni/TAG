@@ -65,7 +65,7 @@ namespace TAG_Revisied
                     {
                         if (TiedToVent)
                         {
-                            return $"It's already tied to the {vent.Name}";
+                            return $"It's already tied to the {vent.Name}.";
                         }
                         else if (TiedToPiston)
                         {
@@ -75,7 +75,8 @@ namespace TAG_Revisied
                                 gameState.RemoveRoomItem(this);
                                 return $"You tie the other end of the {Name} to the cover of the {vent.Name}. The {Name} is stretched thin." +
                                     "The PISTON seems to to be struggling to rise..." +
-                                    $"As the piston forcefully descends it rips the cover which blocked the {vent.Name}.";
+                                    $"As the piston forcefully descends it rips the cover which blocked the {vent.Name}. " +
+                                    $"The {Name} unravels and rendered useless.";
                             }
                         }
                         TiedToVent = true;
@@ -83,11 +84,11 @@ namespace TAG_Revisied
                         gameState.RemoveItemFromInventory(this);
                         return $"You tie one end of the {Name} to the cover of the {vent.Name}.";
                     }
-                    return $"I can't reach {vent.Name}";
+                    return $"I can't reach the {vent.Name}.";
                 case Piston piston:
                     if (TiedToPiston)
                     {
-                        return $"It's already tied to the {piston.Name}";
+                        return $"It's already tied to the {piston.Name}.";
                     }
                     else if (TiedToVent)
                     {
@@ -96,9 +97,11 @@ namespace TAG_Revisied
                             var vent = gameState.GetItem("VENT") as Vent;
                             vent.IsCovered = false;
                             gameState.RemoveRoomItem(this);
-                            return $"You tie the other end of the {Name} to the cover of the {piston.Name}. The {Name} is stretched thin." +
+                            return $"You tie the other end of the {Name} to the outer layer of the {piston.Name}. \n" +
+                                $"The {Name} is stretched thin." +
                                 $"The {piston.Name} seems to to be struggling to rise..." +
-                                $"As the piston forcefully descends it rips the cover which blocked the {vent.Name}.";
+                                $"As the piston forcefully descends it rips the cover which blocked the {vent.Name}. " +
+                                $"The {Name} unravels and rendered useless.";
                         }
                     }
                     TiedToPiston = true;

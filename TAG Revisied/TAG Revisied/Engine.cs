@@ -28,7 +28,8 @@ namespace TAG_Revisied
                     vent.IsCovered = false;
                     return $"As you turn on the {Name} the adjacent PISTON's outer layer attempts to rise to the ceiling." +
                         $"The {rope.Name} stretches thinly." +
-                        $"As the PISTON fiercely drops to the floor, it rips the cover of the {vent.Name} from its hinges. ";
+                        $"As the PISTON fiercely drops to the floor, it rips the cover of the {vent.Name} from its hinges." +
+                        $"The {rope.Name} unravels and rendered useless. ";
                 }
                 if (gameState.RoomManager.CurrentRoom is EngineRoom engineRoom)
                 {
