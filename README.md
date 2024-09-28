@@ -1,2 +1,2 @@
 # TAG
-The repo for TAG
+A small text adventure game.
