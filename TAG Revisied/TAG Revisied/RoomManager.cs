@@ -19,9 +19,11 @@ namespace TAG_Revisied
             CurrentRoom = room;
             var hallway = new Hallway();
             var sleepingQuarters = new SleepingQuarters();
+            var engineRoom = new EngineRoom();
             AddRoom(room);
             AddRoom(hallway);
             AddRoom(sleepingQuarters);
+            AddRoom(engineRoom);
             //will probably have to isntatiate every room here instead of game initializer 
             //then store them in the dictionary
         }
@@ -46,7 +48,7 @@ namespace TAG_Revisied
             {
                 return room;
             }
-            else throw new Exception(null);
+            else throw new Exception("This room does not exist yet. RoomManager.GetRoom()  LN 49");
         }
         public void ExitCurrnetRoom()
         {

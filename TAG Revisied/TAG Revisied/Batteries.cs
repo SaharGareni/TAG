@@ -27,7 +27,7 @@ namespace TAG_Revisied
                 return $"You remove the {Name} out of the CLOCK. " + base.Take(gameState);
             }
             if (State == BatteriesState.InFlashlight)
-            {               
+            {
                 Flashlight  flashlight = gameState.GetItem("FLASHLIGHT") as Flashlight;
                 State = BatteriesState.InInventory;
                 if (flashlight.State == Flashlight.FlashlightState.Loaded)
@@ -39,6 +39,10 @@ namespace TAG_Revisied
                 {
                     flashlight.IsOn = false;
                     flashlight.State = Flashlight.FlashlightState.InCrackEmpty;
+                }
+                if (gameState.RoomManager.CurrentRoom is  EngineRoom engineRoom)
+                {
+                    engineRoom.IsLitByFlashlight = false;
                 }
                 return $"You remove the {Name} out of the FLASHLIGHT. " + base.Take(gameState);
             }
@@ -52,8 +56,6 @@ namespace TAG_Revisied
             }
             return base.Inspect(gameState);
         }
-        //unfinished taking a break
-        //need to figure out a smart way for UseOn taking out and slotting in the batteries with the given inventory system.
         public override string UseOn(Item targetItem, GameState gameState)
         {
             if (!(State == BatteriesState.InInventory))
@@ -63,9 +65,19 @@ namespace TAG_Revisied
             switch (targetItem)
             {
                 case Flashlight flashlight:
-                    gameState.AddConditionalItem(this);
+                    
+                    
+                    if (flashlight.State == Flashlight.FlashlightState.InCrackEmpty)
+                    {
+                        gameState.AddRoomItem(this);
+                        flashlight.State = Flashlight.FlashlightState.InCrackLoaded;
+                    }
+                    else
+                    {
+                        gameState.AddConditionalItem(this);
+                        flashlight.State = Flashlight.FlashlightState.Loaded;
+                    }
                     gameState.RemoveItemFromInventory(this);
-                    flashlight.State = Flashlight.FlashlightState.Loaded;
                     State = BatteriesState.InFlashlight;
                     return $"You place the {Name} in the {flashlight.Name}.";
                     

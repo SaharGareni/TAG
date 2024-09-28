@@ -24,11 +24,11 @@ namespace TAG_Revisied
         {
             if (OnWall)
             {
-                return "Right twice a day.";
+                return "It's emitting an annoying tick...";
             }
             if (!HasBatteries)
             {
-                return "Finally. The ticking is gone";
+                return "Right twice a day.";
             }
             return base.Inspect(gameState);
         }
